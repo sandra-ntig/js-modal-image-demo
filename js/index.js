@@ -7,11 +7,10 @@
     cardImage[i].addEventListener('click', handleCardClick);
     }
 
-modalOuter.addEventListener('click', closeModal); 
 
 function handleCardClick(event) {
-        const button = event.currentTarget;
-        const card = button.closest('.card');
+        const target = event.currentTarget;
+        const card = target.closest('.card');
         console.log(card);
         const imgSrc = card.querySelector('img').src;
         console.log(imgSrc);
@@ -23,9 +22,16 @@ function handleCardClick(event) {
       
 }
 
+modalOuter.addEventListener('click', closeModal); 
+
+
 function closeModal(event) {
-    console.log(event.target);
-    console.log(event.currentTarget);
-    modalOuter.classList.remove('open');
    
+    const isOutside = !event.target.closest('.modal-inner');
+    console.log(isOutside);
+    if (isOutside) {
+        modalOuter.classList.remove('open');
+    }
+
+
 }
