@@ -21,16 +21,11 @@ function handleCardClick(event) {
         // Hittar elementet som man klickar på
         const target = event.currentTarget;
         console.log(target);
-        // Hittar närmsta föräldra element
-        const card = target.closest('.card');
-        console.log(card);
-        // Hittar bilden i föräldraelementet
-        const imgSrc = card.querySelector('img').src;
-        console.log(imgSrc);
-        // Lägger in bilden som användaren klickat på i inre modalen. Byter ut storleken i url:en för bilden
-        modalInner.innerHTML = `
-        <img  src="${imgSrc.replace('200', '600')}"/>
-        `; 
+        // Hämtar url:en för bilden
+        const imgSrc = target.src;
+        console.log(imgSrc); 
+        // Lägger in bilden som användaren klickat på i inre modalen
+        modalInner.innerHTML = "<img src=" + imgSrc + ">";
         // show the modal
          modalOuter.classList.add('open'); 
 

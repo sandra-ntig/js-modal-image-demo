@@ -39,7 +39,7 @@ body {
 }
 
 .modal-inner {
-  max-width: 600px;
+  width: 40%;
   min-width: 400px;
   padding: 2rem;
   border-radius: 5px;
